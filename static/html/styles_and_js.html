@@ -1,0 +1,297 @@
+<script src="https://kit.fontawesome.com/2c74303849.js" crossorigin="anonymous"></script>
+
+<style>
+    :root {
+          --primary-color: #2c3e50;
+          --secondary-color: #f7f9fc;
+          --success-color: #27ae60;
+          --warning-color: #f39c12;
+          --danger-color: #e74c3c;
+          --neutral-color: #bdc3c7;
+          --color-border: #888;
+          --color-border-hover: #e4e5e7;
+          --green: #2ecc71;
+          --yellow: #f1c40f;
+          --red: #e74c3c;
+      }
+    
+        .metric-card {
+        background: #2d2d2d;
+        border-radius: 15px;
+        padding: 20px;
+        text-align: center;
+        transition: transform 0.2s;
+        }
+    
+        .metric-card:hover {
+        transform: translateY(-5px);
+        }
+    
+        .metric-title {
+        font-size: 1.2em;
+        color: #888;
+        margin-bottom: 10px;
+        }
+    
+        .metric-value {
+        font-size: 2.5em;
+        font-weight: bold;
+        margin: 10px 0;
+        }
+    
+        .gauge-container {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+        }
+    
+        .trend {
+        font-size: 1.1em;
+        margin-top: 10px;
+        }
+    
+        .positive { color: var(--green); }
+        .neutral { color: var(--yellow); }
+        .negative { color: var(--red); }
+    
+        .large-metric {
+        grid-column: span 3;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        }
+    
+        .heatmap {
+        width: 100%;
+        height: 100px;
+        border-radius: 10px;
+        margin-top: 10px;
+        }
+    
+        .heatmap-container {
+        grid-column: span 3;
+        border-radius: 15px;
+        padding: 20px;
+        margin-top: 20px;
+        }
+    
+        .heatmap-title {
+        font-size: 1.2em;
+        color: #000000;
+        margin-bottom: 15px;
+        }
+    
+        .heatmap-grid {
+        display: grid;
+        grid-template-columns: 150px repeat(12, 1fr);
+        gap: 2px;
+        }
+    
+        .heatmap-header {
+        padding: 8px;
+        text-align: center;
+        font-size: 0.9em;
+        color: #0e0e0e;
+        }
+    
+        .heatmap-metric {
+        padding: 8px;
+        text-align: left;
+        color: #000000;
+        }
+    
+        .heatmap-cell {
+        padding: 8px;
+        text-align: center;
+        border-radius: 4px;
+        transition: transform 0.2s;
+        }
+    
+        .heatmap-cell:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+        }
+    
+        .performance-excellent { background-color: rgba(46, 204, 113, 0.8); }
+        .performance-good { background-color: rgba(46, 204, 113, 0.5); }
+        .performance-average { background-color: rgba(241, 196, 15, 0.5); }
+        .performance-poor { background-color: rgba(231, 76, 60, 0.5); }
+        .performance-critical { background-color: rgba(231, 76, 60, 0.8); }
+        .performance-neutral { background-color: rgba(179, 175, 175, 0.8); }
+
+      .chart-container {
+          width: 95%;
+          margin: 5px 20px auto;
+          padding: 5px 20px;
+          background-color: #FFFFFF;
+          border: 1px solid #DDDDDD;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .chart-container h2 {
+          text-align: center;
+          margin-bottom: 20px;
+      }
+
+      .color-key {
+          display: flex;
+          align-items: center;
+          margin-bottom: 20px;
+      }
+
+      .color-box {
+          width: 20px;
+          height: 20px;
+          margin-right: 10px;
+          border: 1px solid #DDDDDD;
+      }
+
+      .chart table {
+          width: 100%;
+          border-collapse: collapse;
+      }
+
+      .chart th, .chart td {
+          border: 1px solid #DDDDDD;
+          padding: 10px;
+          text-align: center;
+      }
+
+      .tier-cell {
+          position: relative;
+          padding: 10px 20px;
+          color: #FFFFFF;
+      }
+
+      .tier-cell .chevron {
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          border-style: solid;
+          border-width: 5px 0 5px 10px;
+          border-color: transparent transparent transparent #FFFFFF;
+      }
+
+      .circle {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          border-color: black;
+          margin: 0 auto;
+          position: relative;
+          transition: transform 0.2s;
+      }
+
+      .heatmap-cell a:link {
+        text-decoration: none;
+        color: black;
+        }
+        .heatmap-cell a:visited {
+        text-decoration: none;
+        color: black;
+        }
+        .heatmap-cell a:hover {
+        text-decoration: none;
+        color: black;
+        }
+        .heatmap-cell a:active {
+        text-decoration: none;
+        color: black;
+        }
+
+    
+    .circle:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+        border-color: black;
+        border-width: 2px;
+        }
+
+            
+    .traffic-cell:hover {
+        background-color: var(--color-border-hover);
+        cursor: pointer;
+        border-spacing:0
+        }
+
+      .small-circle {
+          width: 25px;
+          height: 25px;
+          border-color: black;
+          border-radius: 50%;
+          position: absolute;
+          bottom: 0;
+          left: -10px;
+      }
+
+      .container {
+          width: 100%;
+          margin: 0 auto;
+          padding: 20px;
+      }
+      
+      h1 {
+          color: var(--primary-color);
+          text-align: center;
+          margin-bottom: 30px;
+      }
+      
+      .insights-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 20px;
+      }
+      
+      .insight-card {
+          background-color: #fff;
+          border-radius: 8px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          transition: transform 0.3s ease;
+          cursor: pointer;
+      }
+      
+      .insight-card:hover {
+          transform: translateY(-5px);
+      }
+      
+      .traffic-light {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          margin-bottom: 15px;
+      }
+      
+      .green { background-color: var(--success-color); }
+      .yellow { background-color: var(--warning-color); }
+      .red { background-color: var(--danger-color); }
+      
+      .insight-title {
+          font-size: 18px;
+          font-weight: bold;
+          margin-bottom: 10px;
+      }
+      
+      .insight-value {
+          font-size: 24px;
+          font-weight: bold;
+          margin-bottom: 5px;
+      }
+      
+      .insight-trend {
+          font-size: 14px;
+      }
+      
+      .trend-up { color: var(--success-color); }
+      .trend-down { color: var(--danger-color); }
+      .trend-neutral { color: var(--neutral-color); }
+
+
+
+  </style>
