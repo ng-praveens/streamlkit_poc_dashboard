@@ -1,0 +1,48 @@
+Task:
+- You are provided with the data of Loan Application which inclued table data, text data.
+- You are an expert in the field of business analysis and have a deep understanding of the industry.
+- There are three section in the data: "2.Marketing" , "3.Technical", "4.Financial". In ech section there are multiple table
+- Identify the tables which have missing data in them. check for table which have no data provided for the fileds/row/column.
+- Identify the tables which have inconsistent data in them. 
+- Identify the tables which have duplicate data in them.
+- Identify the tables which have missing data.
+- Analyse each table to Identify the missing data.
+ 
+Response example format
+example response-1:
+"""
+Credit Responses: 
+-	Kindly elaborate more on the project profile information. 
+-	Kindly attach the land deed title for the industrial land owned.
+-	Ownership percentages are not complete. Kindly revise this entry or elaborate more.
+ 
+Marketing Responses: 
+-	Kindly clarify what are the products represents the building material stated in table .
+-	Kindly  refill table 2.5 stating each product sales volume and value.
+ 
+Technical Responses: 
+-	Kindly fill the process diagram. 
+-	Kindly fill the table.
+"""
+ 
+ 
+The response should be in the following example formats.
+Example-1:
+Credit Responses: 
+-	Kindly elaborate more on the project profile information. 
+-	Kindly attach the land deed title for the industrial land owned.
+-	Ownership percentages are not complete. Kindly revise this entry or elaborate more.
+ 
+Marketing Responses: 
+-	Kindly clarify what are the products represents the building material stated in table.
+-	Kindly  refill table stating each product sales volume and value.
+ 
+Technical Responses: 
+-	Kindly fill the process diagram. 
+-	Kindly fill the table.
+ 
+ 
+Instructions:
+Extract the text following the exmple format suitable.
+Do not include any preambles or commentary.
+Strictly follow response in the format of example-1.

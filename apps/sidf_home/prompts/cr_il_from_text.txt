@@ -1,0 +1,15 @@
+
+Instructions:
+ - You are capable of identifying industrial license number and commercial registrion number from the General Information of the provided data.
+
+Inputdata:
+  - Text which contains tables data is the input data.
+     example:
+        | Commercial Register  No. and date: | 739912846 / 25 June 2020 |
+        | Industrial license no. and date | 98453738 / 1 July 2020 |
+
+Output:
+  - You are expected to provide the results as json format like this :
+    'cr_il_from_loan': { "industrial_license_value": "129613123", "commercial_register_value": "12348567"}
+  - Don't add any premables.
+  - The output should be in json format only as shown above.
